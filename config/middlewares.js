@@ -15,7 +15,16 @@ module.exports = [
       },
     },
   },
-  'strapi::cors',
+    {
+    name: 'strapi::cors',
+    config: {
+      origin: [
+        'http://localhost:3000',          
+        'https://io-tech-task-back-end.onrender.com' 
+      ],
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
