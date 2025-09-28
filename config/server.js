@@ -1,20 +1,24 @@
 module.exports = ({ env }) => ({
-  host: env('HOST', '0.0.0.0'),
+  host: '0.0.0.0',
   port: env.int('PORT', 1337),
+  proxy: true,
+  url: env('PUBLIC_URL', 'https://io-tech-task-back-end.onrender.com/'),
+  
   app: {
-    keys: env.array('APP_KEYS'),
+    keys: [
+      env('APP_KEY_1', 'someRandomKey1'),
+      env('APP_KEY_2', 'someRandomKey2'),
+      env('APP_KEY_3', 'someRandomKey3'),
+      env('APP_KEY_4', 'someRandomKey4'),
+    ],
   },
-  webhooks: {
-    populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
-  },
-  cors: {
-    // origin: ['https://swordmanhwa.site/', 'https://www.swordmanhwa.site/'],
-    // Uncomment the above line and comment the next line to restrict CORS to specific domains
-    // For development, you can allow all origins
-    enabled: true,
-     origin: ['*'], // أثناء التطوير، استبدلها لاحقًا بموقعك للإنتاج
-    headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true,
+
+  admin: {
+    auth: {
+      secret: env('ADMIN_JWT_SECRET', 'someSecretKey'),
+      session: {
+        secure: true,
+      },
+    },
   },
 });
