@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_hero_content_contents",
+  "info": {
+    "displayName": "content",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "mainImage": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "files",
+        "videos",
+        "images"
+      ]
+    },
+    "imgContent": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "ReadMoreUrl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

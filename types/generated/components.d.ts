@@ -1,45 +1,28 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface FieldAboutAbout extends Struct.ComponentSchema {
-  collectionName: 'components_field_about_abouts';
+export interface HeaderLinksLinks extends Struct.ComponentSchema {
+  collectionName: 'components_header_links_links';
   info: {
-    description: '';
-    displayName: 'about';
-    icon: 'bulletList';
+    displayName: 'links';
+    icon: 'link';
   };
   attributes: {
-    content_about: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    title: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    Url: Schema.Attribute.String;
   };
 }
 
-export interface FieldAboutImages extends Struct.ComponentSchema {
-  collectionName: 'components_field_about_images';
+export interface HeroContentContent extends Struct.ComponentSchema {
+  collectionName: 'components_hero_content_contents';
   info: {
-    displayName: 'images';
-    icon: 'landscape';
+    displayName: 'content';
+    icon: 'apps';
   };
   attributes: {
-    my_images: Schema.Attribute.Media<'images', true>;
-    title: Schema.Attribute.Text;
-  };
-}
-
-export interface FieldAboutSkills extends Struct.ComponentSchema {
-  collectionName: 'components_field_about_skills';
-  info: {
-    description: '';
-    displayName: 'skills';
-    icon: 'briefcase';
-  };
-  attributes: {
-    skill_icon: Schema.Attribute.Media<'images' | 'files', true>;
+    description: Schema.Attribute.Text;
+    imgContent: Schema.Attribute.Media<'images' | 'files'>;
+    mainImage: Schema.Attribute.Media<'files' | 'videos' | 'images', true>;
+    ReadMoreUrl: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -47,9 +30,8 @@ export interface FieldAboutSkills extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'field-about.about': FieldAboutAbout;
-      'field-about.images': FieldAboutImages;
-      'field-about.skills': FieldAboutSkills;
+      'header-links.links': HeaderLinksLinks;
+      'hero-content.content': HeroContentContent;
     }
   }
 }

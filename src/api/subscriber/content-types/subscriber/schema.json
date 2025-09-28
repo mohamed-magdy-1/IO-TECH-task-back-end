@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
-  "collectionName": "homes",
+  "kind": "collectionType",
+  "collectionName": "subscribers",
   "info": {
-    "singularName": "home",
-    "pluralName": "homes",
-    "displayName": "Home"
+    "singularName": "subscriber",
+    "pluralName": "subscribers",
+    "displayName": "Subscriber"
   },
   "options": {
     "draftAndPublish": true
@@ -15,15 +15,15 @@
     }
   },
   "attributes": {
-    "ContentHero": {
-      "type": "component",
+    "UserEmail": {
+      "type": "email",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "hero-content.content",
-      "repeatable": true
+      "required": true,
+      "unique": true
     }
   }
 }
