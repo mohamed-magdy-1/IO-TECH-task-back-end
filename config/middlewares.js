@@ -8,23 +8,13 @@ module.exports = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
-          upgradeInsecureRequests: null,
+          'img-src': ["'self'", 'data:', 'blob:', 'https:', 'res.cloudinary.com'],
+          
         },
       },
     },
   },
-    {
-    name: 'strapi::cors',
-    config: {
-      origin: [
-        'http://localhost:3000',          
-        'https://io-tech-task-back-end.onrender.com' 
-      ],
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
-    },
-  },
+  'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
